@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-base-background text-base-text antialiased;
+}
+
+body,
+input,
+button,
+textarea {
+  @apply text-text-m font-regular font-normal;
+}
+
+@layer components {
+  .layoutContainer {
+    @apply w-[1152px] px-4 mx-auto;
+  }
+}
