@@ -10,9 +10,9 @@ export default {
         'base-input': '#EDEDED',
         'base-button': '#E6E5E5',
         'base-hover': '#D7D5D5',
+
         'base-label': '#8D8686',
         'base-error': '#f84747',
-
         'base-text': '#574F4D',
         'base-subtitle': '#403937',
         'base-title': '#272221',
@@ -27,19 +27,19 @@ export default {
       },
       fontSize: {
         'title-xl': '3rem',
-        'title-l': '2rem',
-        'title-m': '1.5rem',
-        'title-s': '1.25rem',
+        'title-lg': '2rem',
+        'title-md': '1.5rem',
+        'title-sm': '1.25rem',
         'title-xs': '1.125rem',
 
-        'text-l': '1.25rem',
-        'text-m': '1rem',
-        'text-s': '0.875rem',
+        'text-lg': '1.25rem',
+        'text-md': '1rem',
+        'text-sm': '0.875rem',
         'text-xs': '0.75rem',
 
-        'tag-m': '0.625rem',
-        'button-g': '0.875rem',
-        'button-s': '0.75rem',
+        'tag-md': '0.625rem',
+        'button-lg': '0.875rem',
+        'button-sm': '0.75rem',
       },
       fontFamily: {
         regular: "'Roboto'",

@@ -10,7 +10,7 @@ body,
 input,
 button,
 textarea {
-  @apply text-text-m font-regular font-normal;
+  @apply text-text-md font-regular font-normal;
 }
 
 @layer components {
