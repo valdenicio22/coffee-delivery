@@ -1,9 +1,11 @@
-import { Intro } from './components/Intro'
+import { IntroSection } from './components/IntroSection'
+import { ProductSection } from './components/ProductSection'
 
 export const LandingPage = () => {
   return (
     <section className={``}>
-      <Intro />
+      <IntroSection />
+      <ProductSection />
     </section>
   )
 }

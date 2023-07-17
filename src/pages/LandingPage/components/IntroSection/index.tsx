@@ -3,7 +3,7 @@ import introImage from '../../../../assets/intro-img.svg'
 import { InfoWithIcon } from '../../../../components/InfoWithIcon'
 import { RegularText, TitleText } from '../../../../components/Typography'
 
-export function Intro() {
+export function IntroSection() {
   return (
     <div
       className={`layoutContainer flex flex-row justify-between gap-9 my-24`}
