@@ -1,12 +1,12 @@
-import { ReactNode } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 
-interface TitleTextProps {
-  color?: 'title' | 'subtitle'
+type TitleTextProps = {
+  color?: 'title' | 'subtitle' | 'text'
   size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs'
   weight?: 'bold' | 'extrabold'
   as?: keyof JSX.IntrinsicElements
   children: ReactNode
-}
+} & HTMLAttributes<HTMLOrSVGElement>
 
 export const TitleText = ({
   color = 'title',
@@ -14,6 +14,8 @@ export const TitleText = ({
   weight = 'bold',
   children,
   as: Tag = 'h1',
+  className,
+  ...props
 }: TitleTextProps) => {
   const sizeVariant = {
     xl: 'text-title-xl',
@@ -25,12 +27,19 @@ export const TitleText = ({
   const colorVariant = {
     title: 'text-base-title',
     subtitle: 'text-base-subtitle',
+    text: 'text-base-text',
   }
   const weightVariant = {
     bold: 'font-bold',
     extrabold: 'font-extrabold',
   }
 
-  const componentStyle = `${sizeVariant[size]} ${colorVariant[color]} ${weightVariant[weight]} font-title leading-[1.3]`
-  return <Tag className={componentStyle}>{children}</Tag>
+  const componentStyle = `font-title leading-[1.3] ${sizeVariant[size]} ${colorVariant[color]}
+  ${weightVariant[weight]} ${className}`
+
+  return (
+    <Tag className={componentStyle} {...props}>
+      {children}
+    </Tag>
+  )
 }
