@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 
-interface RegularTextProps {
-  color?: 'text' | 'subtitle' | 'label' | 'error'
+type RegularTextProps = {
+  color?: 'text' | 'subtitle' | 'label' | 'error' | 'purple-dark'
   size?: 'lg' | 'md' | 'sm' | 'xs'
   weight?: 'regular' | 'bold'
   as?: keyof JSX.IntrinsicElements
@@ -13,7 +13,7 @@ export const RegularText = ({
   size = 'md',
   weight = 'regular',
   children,
-  as: Element = 'p',
+  as: Tag = 'p',
 }: RegularTextProps) => {
   const sizeVariant = {
     lg: 'text-text-lg',
@@ -26,6 +26,7 @@ export const RegularText = ({
     subtitle: 'text-base-subtitle',
     label: 'text-base-label',
     error: 'text-base-error',
+    'purple-dark': 'text-brand-purple-dark',
   }
   const weightVariant = {
     regular: 'font-normal',
@@ -34,5 +35,5 @@ export const RegularText = ({
   const componentStyle = `${sizeVariant[size]} ${colorVariant[color]}
   ${weightVariant[weight]} font-regular leading-[1.3]`
 
-  return <Element className={componentStyle}>{children}</Element>
+  return <Tag className={componentStyle}>{children}</Tag>
 }

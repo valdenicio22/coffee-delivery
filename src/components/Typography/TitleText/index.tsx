@@ -13,7 +13,7 @@ export const TitleText = ({
   size = 'xl',
   weight = 'bold',
   children,
-  as: Element = 'h1',
+  as: Tag = 'h1',
 }: TitleTextProps) => {
   const sizeVariant = {
     xl: 'text-title-xl',
@@ -32,5 +32,5 @@ export const TitleText = ({
   }
 
   const componentStyle = `${sizeVariant[size]} ${colorVariant[color]} ${weightVariant[weight]} font-title leading-[1.3]`
-  return <Element className={componentStyle}>{children}</Element>
+  return <Tag className={componentStyle}>{children}</Tag>
 }
