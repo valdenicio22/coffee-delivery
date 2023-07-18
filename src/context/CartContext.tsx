@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useState } from 'react'
 import { Product } from '../pages/LandingPage/components/ProductSection'
 
+export type ProductQuantityAction = 'increase' | 'decrease'
 export interface CartItem extends Product {
   quantity: number
 }
@@ -8,7 +9,11 @@ export interface CartItem extends Product {
 interface CartContextType {
   cartItems: CartItem[]
   addToCart: (newProduct: CartItem) => void
-  removeFromCart: (productId: CartItem['id']) => void
+  removeFromCart: (productId: Product['id']) => void
+  onProductQuantityChange: (
+    productId: Product['id'],
+    type: 'decrease' | 'increase',
+  ) => void
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -35,13 +40,30 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     }
     setCartItems((state) => [...state, newProduct])
   }
-  function removeFromCart(productId: CartItem['id']) {
+  function onProductQuantityChange(
+    productId: CartItem['id'],
+    type: ProductQuantityAction,
+  ) {
+    const updatedCartItems = cartItems.map((item) =>
+      item.id === productId
+        ? {
+            ...item,
+            quantity:
+              type === 'increase' ? item.quantity + 1 : item.quantity - 1,
+          }
+        : item,
+    )
+    setCartItems(updatedCartItems)
+  }
+  function removeFromCart(productId: Product['id']) {
     const updatedCartItems = cartItems.filter((item) => item.id !== productId)
     setCartItems(updatedCartItems)
   }
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, removeFromCart, onProductQuantityChange }}
+    >
       {children}
     </CartContext.Provider>
   )

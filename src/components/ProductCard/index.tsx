@@ -1,6 +1,6 @@
 import { ShoppingCart } from '@phosphor-icons/react'
 import { useState } from 'react'
-import { CartItem } from '../../context/CartContext'
+import { CartItem, ProductQuantityAction } from '../../context/CartContext'
 import { useCart } from '../../hooks/useCart'
 import { Product } from '../../pages/LandingPage/components/ProductSection'
 import { ProductQuantity } from '../ProductQuantity'
@@ -22,7 +22,7 @@ export function ProductCard({ product }: ProductCardProps) {
     const productToCart: CartItem = { ...product, quantity: productQuantity }
     addToCart(productToCart)
   }
-  function handleQuantityChange(type: 'increase' | 'decrease') {
+  function handleQuantityChange(type: ProductQuantityAction) {
     if (type === 'increase') {
       setProductQuantity((state) => state + 1)
     } else {

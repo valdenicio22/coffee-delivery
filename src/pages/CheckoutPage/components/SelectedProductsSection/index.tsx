@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import { ProductCartCard } from '../../../../components/ProductCartCard'
 import { RegularText, TitleText } from '../../../../components/Typography'
+import { useCart } from '../../../../hooks/useCart'
 
 export function SelectedProductsSection() {
+  const { cartItems } = useCart()
   const navigate = useNavigate()
 
   function handleConfirmeOrder() {
@@ -15,7 +17,10 @@ export function SelectedProductsSection() {
         Cafés selecionados
       </TitleText>
       <div className="flex flex-col p-10 bg-base-card rounded-tl-md rounded-tr-[44px] rounded-br-md rounded-bl-[44px]">
-        <ProductCartCard />
+        {cartItems.length &&
+          cartItems.map((item) => (
+            <ProductCartCard key={item.id} product={item} />
+          ))}
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <RegularText size="sm">Total de itens</RegularText>

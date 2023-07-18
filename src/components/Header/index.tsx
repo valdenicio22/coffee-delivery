@@ -23,7 +23,7 @@ export const Header = () => {
             className={`h-10 w-10 bg-brand-yellow-light text-brand-yellow-dark p-2 rounded-md  transitionColor hover:bg-brand-yellow-dark hover:text-brand-yellow-light relative`}
           >
             <ShoppingCart size={22} weight="fill" />
-            {cartItems.length && (
+            {!!cartItems.length && (
               <RegularText
                 as="span"
                 size="sm"

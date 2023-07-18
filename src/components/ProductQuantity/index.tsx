@@ -1,8 +1,9 @@
 import { Minus, Plus } from '@phosphor-icons/react'
+import { ProductQuantityAction } from '../../context/CartContext'
 import { RegularText } from '../Typography'
 
 interface ProductQuantityProps {
-  onQuantityChange(type: 'increase' | 'decrease'): void
+  onQuantityChange(type: ProductQuantityAction): void
   productQuantity: number
 }
 
