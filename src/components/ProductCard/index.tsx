@@ -1,4 +1,7 @@
 import { ShoppingCart } from '@phosphor-icons/react'
+import { useState } from 'react'
+import { CartItem } from '../../context/CartContext'
+import { useCart } from '../../hooks/useCart'
 import { Product } from '../../pages/LandingPage/components/ProductSection'
 import { ProductQuantity } from '../ProductQuantity'
 import { ProductTag } from '../ProductTag'
@@ -9,7 +12,24 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const [productQuantity, setProductQuantity] = useState(1)
+
+  const { addToCart } = useCart()
+
   const { description, name, photo, price, tags } = product
+
+  function handleAddToCart() {
+    const productToCart: CartItem = { ...product, quantity: productQuantity }
+    addToCart(productToCart)
+  }
+  function handleQuantityChange(type: 'increase' | 'decrease') {
+    if (type === 'increase') {
+      setProductQuantity((state) => state + 1)
+    } else {
+      setProductQuantity((state) => state - 1)
+    }
+  }
+
   return (
     <div className="productCard">
       <div className="flex flex-col items-center">
@@ -44,10 +64,14 @@ export function ProductCard({ product }: ProductCardProps) {
           </TitleText>
         </div>
         <div className="w-[7.5rem] flex items-center gap-2">
-          <ProductQuantity />
+          <ProductQuantity
+            onQuantityChange={handleQuantityChange}
+            productQuantity={productQuantity}
+          />
           <button
             type="button"
             className="text-base-card p-2 rounded-md bg-brand-purple-dark hover:bg-brand-purple"
+            onClick={handleAddToCart}
           >
             <ShoppingCart weight="fill" size={22} />
           </button>

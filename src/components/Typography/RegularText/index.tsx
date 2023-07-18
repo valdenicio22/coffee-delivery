@@ -1,7 +1,14 @@
 import { HTMLAttributes, ReactNode } from 'react'
 
 type RegularTextProps = {
-  color?: 'text' | 'subtitle' | 'label' | 'error' | 'purple-dark' | 'title'
+  color?:
+    | 'text'
+    | 'subtitle'
+    | 'label'
+    | 'error'
+    | 'purple-dark'
+    | 'title'
+    | 'white'
   size?: 'lg' | 'md' | 'sm' | 'xs'
   weight?: 'regular' | 'bold'
   as?: keyof JSX.IntrinsicElements
@@ -30,6 +37,7 @@ export const RegularText = ({
     label: 'text-base-label',
     error: 'text-base-error',
     'purple-dark': 'text-brand-purple-dark',
+    white: 'text-base-white',
   }
   const weightVariant = {
     regular: 'font-normal',
