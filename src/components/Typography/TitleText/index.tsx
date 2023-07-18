@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactNode } from 'react'
 
 type TitleTextProps = {
-  color?: 'title' | 'subtitle' | 'text'
+  color?: 'title' | 'subtitle' | 'text' | 'yellow-dark'
   size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs'
   weight?: 'bold' | 'extrabold'
   as?: keyof JSX.IntrinsicElements
@@ -28,6 +28,7 @@ export const TitleText = ({
     title: 'text-base-title',
     subtitle: 'text-base-subtitle',
     text: 'text-base-text',
+    'yellow-dark': 'text-brand-yellow-dark',
   }
   const weightVariant = {
     bold: 'font-bold',

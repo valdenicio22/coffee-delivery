@@ -28,7 +28,7 @@ export function InfoWithIcon({
   return (
     <div className={`flex items-center gap-3`}>
       <div
-        className={`w-8 h-8 rounded-full p-2 ${iconBgColorVarient[iconBgColor]} ${iconColorVarient[iconColor]}`}
+        className={`flex items-center justify-center w-8 h-8 rounded-full p-2 ${iconBgColorVarient[iconBgColor]} ${iconColorVarient[iconColor]}`}
       >
         {icon}
       </div>

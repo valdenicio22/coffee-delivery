@@ -1,4 +1,4 @@
-import { ConfirmeOrderSection } from './components/ConfirmeOrderSection'
+import { SelectedProductsSection } from './components/SelectedProductsSection'
 import { FormSection } from './components/FormSection'
 import { PaymentSection } from './components/PaymentSection'
 
@@ -9,7 +9,7 @@ export const CheckoutPage = () => {
         <FormSection />
         <PaymentSection />
       </div>
-      <ConfirmeOrderSection />
+      <SelectedProductsSection />
     </div>
   )
 }
