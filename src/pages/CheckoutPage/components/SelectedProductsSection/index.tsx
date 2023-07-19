@@ -10,9 +10,9 @@ export function SelectedProductsSection() {
   const { cartItems } = useCart()
   const navigate = useNavigate()
 
-  function handleConfirmeOrder() {
-    navigate('/confirmeOrder')
-  }
+  // function handleConfirmeOrder() {
+  //   navigate('/confirmeOrder')
+  // }
   const totalProductsValue = useMemo(
     () => cartItems.reduce((total, item) => total + item.quantity, 0),
     [cartItems],
@@ -51,7 +51,9 @@ export function SelectedProductsSection() {
           </div>
         </div>
         <button
-          onClick={handleConfirmeOrder}
+          type="submit"
+          form="checkoutForm"
+          // onClick={handleConfirmeOrder}
           className="w-full flex items-center justify-center bg-brand-yellow text-base-white text-button-lg font-bold rounded-md uppercase mt-6 py-3 px-2"
         >
           Confirmar Pedido

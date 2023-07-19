@@ -9,15 +9,21 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ error, rightText, className, ...props }, ref) => {
     return (
-      <div
-        className={`flex flex-col gap-1 p-3 rounded-[4px] border border-base-button bg-base-input ${className} ${
-          error && `border-base-error`
-        }`}
-      >
-        <div className="flex items-center justify-between gap-1">
-          <input className={`w-full bg-transparent `} {...props} ref={ref} />
+      <div className={`flex flex-col gap-1 ${className}`}>
+        <div
+          className={`h-[2.625rem] rounded-[4px] 
+          border border-base-button bg-base-input overflow-hidden
+          ${error && `border-base-error`}
+          ${rightText && `flex items-center justify-between`}
+        `}
+        >
+          <input
+            className={`w-full h-full px-3 bg-transparent border-none text-xs text-base-text placeholder:text-base-label`}
+            {...props}
+            ref={ref}
+          />
           {rightText && (
-            <RegularText color="label" size="xs">
+            <RegularText color="label" size="xs" className="italic pr-3">
               {rightText}
             </RegularText>
           )}
