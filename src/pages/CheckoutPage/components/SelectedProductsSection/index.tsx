@@ -1,7 +1,10 @@
+import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProductCartCard } from '../../../../components/ProductCartCard'
 import { RegularText, TitleText } from '../../../../components/Typography'
+import { DELIVERY_FEE } from '../../../../constants'
 import { useCart } from '../../../../hooks/useCart'
+import { format } from '../../../../utils/format'
 
 export function SelectedProductsSection() {
   const { cartItems } = useCart()
@@ -10,32 +13,40 @@ export function SelectedProductsSection() {
   function handleConfirmeOrder() {
     navigate('/confirmeOrder')
   }
+  const totalProductsValue = useMemo(
+    () => cartItems.reduce((total, item) => total + item.quantity, 0),
+    [cartItems],
+  )
 
   return (
-    <div>
+    <div className="w-full">
       <TitleText size="xs" color="subtitle" className="mb-4">
         Cafés selecionados
       </TitleText>
       <div className="flex flex-col p-10 bg-base-card rounded-tl-md rounded-tr-[44px] rounded-br-md rounded-bl-[44px]">
-        {cartItems.length &&
+        {!!cartItems.length &&
           cartItems.map((item) => (
             <ProductCartCard key={item.id} product={item} />
           ))}
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
             <RegularText size="sm">Total de itens</RegularText>
-            <RegularText>R$ 29,70</RegularText>
+            <RegularText>R$ {format(totalProductsValue)}</RegularText>
           </div>
           <div className="flex items-center justify-between">
             <RegularText size="sm">Entrega</RegularText>
-            <RegularText>R$ 3,50</RegularText>
+            <RegularText>
+              {cartItems.length ? `R$ ${format(DELIVERY_FEE)}` : 'R$ 0,00'}
+            </RegularText>
           </div>
           <div className="flex items-center justify-between">
             <RegularText size="lg" color="subtitle" weight="bold">
               Total de itens
             </RegularText>
             <RegularText size="lg" color="subtitle" weight="bold">
-              R$ 33,20
+              {cartItems.length
+                ? `R$ ${format(totalProductsValue + DELIVERY_FEE)}`
+                : 'R$ 0,00'}
             </RegularText>
           </div>
         </div>
