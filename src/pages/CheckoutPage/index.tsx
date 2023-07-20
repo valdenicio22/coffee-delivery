@@ -48,13 +48,9 @@ export const CheckoutPage = () => {
     resolver: zodResolver(checkouFormSchema),
     defaultValues: checkoutFormDefaultValues,
   })
-  const { handleSubmit, getValues } = checkoutFormMethods
-
-  console.log('HAHSHAHAH')
-  console.log('getValues', getValues())
+  const { handleSubmit } = checkoutFormMethods
 
   function handleCheckoutFormSubmit(data: CheckoutFormData) {
-    console.log('form submitted')
     navigate('/confirmedOrder', { state: data })
     cleanCart()
   }

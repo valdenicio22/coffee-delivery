@@ -14,6 +14,7 @@ export function ProductQuantity({
   return (
     <div className="flex items-center justify-center gap-2 w-[4.5rem] h-8 p-2 bg-base-button rounded-md ">
       <button
+        type="button"
         className="text-brand-purple enabled:hover:text-brand-purple-dark disabled:cursor-not-allowed"
         onClick={() => onQuantityChange('decrease')}
         disabled={productQuantity <= 1}
@@ -22,6 +23,7 @@ export function ProductQuantity({
       </button>
       <RegularText color="title">{productQuantity}</RegularText>
       <button
+        type="button"
         className="text-brand-purple hover:text-brand-purple-dark"
         onClick={() => onQuantityChange('increase')}
       >

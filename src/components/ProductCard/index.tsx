@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { CartItem, ProductQuantityAction } from '../../context/CartContext'
 import { useCart } from '../../hooks/useCart'
 import { Product } from '../../pages/LandingPage/components/ProductSection'
+import { formatMoney } from '../../utils/formatMoney'
 import { ProductQuantity } from '../ProductQuantity'
 import { ProductTag } from '../ProductTag'
 import { RegularText, TitleText } from '../Typography'
@@ -17,6 +18,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart()
 
   const { description, name, photo, price, tags } = product
+  const formattedPrice = formatMoney(price)
 
   function handleAddToCart() {
     const productToCart: CartItem = { ...product, quantity: productQuantity }
@@ -60,7 +62,7 @@ export function ProductCard({ product }: ProductCardProps) {
             R$
           </RegularText>
           <TitleText size="md" color="text" as="strong">
-            {price}
+            {formattedPrice}
           </TitleText>
         </div>
         <div className="w-[7.5rem] flex items-center gap-2">
