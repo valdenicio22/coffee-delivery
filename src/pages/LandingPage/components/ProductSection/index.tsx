@@ -25,7 +25,7 @@ export function ProductSection() {
   }, [])
 
   return (
-    <div className="flex flex-col py-8 layoutContainer gap-14">
+    <main className="flex flex-col py-8 layoutContainer gap-14">
       <TitleText as="h2" size="lg" color="subtitle" weight="extrabold">
         Nossos Cafés
       </TitleText>
@@ -38,6 +38,6 @@ export function ProductSection() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </div>
+    </main>
   )
 }

@@ -62,3 +62,19 @@ textarea {
     @apply content-[''] absolute -inset-[1px] -z-10 rounded-[7px_37px] bg-gradient-to-r from-[#dbac2c] to-[#8047f8];
   }
 }
+
+@layer utilities {
+  .gradient-with-image {
+    background-image: linear-gradient(
+      to top,
+      var(#ffffff),
+      var(#fafafa) 20%,
+      var(#fafafa)
+    );
+  }
+}
+
+.introBackground {
+  @apply bg-no-repeat bg-center bg-cover gradient-with-image;
+  background-image: url("assets/intro-background.svg");
+}
