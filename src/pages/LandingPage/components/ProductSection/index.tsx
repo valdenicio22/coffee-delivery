@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ProductCard } from '../../../../components/ProductCard'
+import { ProductCardSkeleton } from '../../../../components/ProductCard/ProductCardSkeleton'
 import { TitleText } from '../../../../components/Typography'
 import { coffees } from '../../../../data/products'
 
@@ -24,11 +25,15 @@ export function ProductSection() {
   }, [])
 
   return (
-    <div className="layoutContainer py-8 flex flex-col gap-14">
+    <div className="flex flex-col py-8 layoutContainer gap-14">
       <TitleText as="h2" size="lg" color="subtitle" weight="extrabold">
         Nossos Cafés
       </TitleText>
       <div className="grid grid-cols-4 gap-x-8 gap-y-10">
+        {!products.length &&
+          Array(9)
+            .fill('')
+            .map((_, i) => <ProductCardSkeleton key={i} />)}
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
