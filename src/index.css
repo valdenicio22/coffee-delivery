@@ -29,4 +29,7 @@ textarea {
   .paymentInputMethod:checked + label {
     @apply bg-brand-purple-light border border-brand-purple;
   }
+  .gradientBorder:before {
+    @apply content-[''] absolute -inset-[1px] -z-10 rounded-[7px_37px] bg-gradient-to-r from-[#dbac2c] to-[#8047f8];
+  }
 }
