@@ -13,6 +13,35 @@ textarea {
   @apply text-text-md font-regular font-normal;
 }
 
+@layer base {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"] {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    @apply w-[0.5rem];
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    @apply bg-base-background rounded-md;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    @apply bg-base-label rounded-md;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-purple rounded-md;
+  }
+}
+
 @layer components {
   .layoutContainer {
     @apply max-w-[1152px] px-4 mx-auto;
