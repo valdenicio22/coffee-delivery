@@ -1,4 +1,5 @@
-import { ReactNode, createContext, useState } from 'react'
+import { ReactNode, createContext, useEffect, useState } from 'react'
+import { CART_STORAGE_KEY } from '../constants'
 import { Product } from '../pages/LandingPage/components/ProductSection'
 
 export type ProductQuantityAction = 'increase' | 'decrease'
@@ -14,6 +15,7 @@ interface CartContextType {
     productId: Product['id'],
     type: 'decrease' | 'increase',
   ) => void
+  cleanCart: () => void
 }
 
 export const CartContext = createContext({} as CartContextType)
@@ -22,7 +24,14 @@ interface CartContextProviderProps {
   children: ReactNode
 }
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = localStorage.getItem(CART_STORAGE_KEY)
+    return storedCartItems ? JSON.parse(storedCartItems) : []
+  })
+
+  useEffect(() => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems))
+  }, [cartItems])
 
   function addToCart(newProduct: CartItem) {
     const isProductAlreadyInCart = cartItems.findIndex(
@@ -60,9 +69,19 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(updatedCartItems)
   }
 
+  function cleanCart() {
+    setCartItems([])
+  }
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, onProductQuantityChange }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        onProductQuantityChange,
+        cleanCart,
+      }}
     >
       {children}
     </CartContext.Provider>

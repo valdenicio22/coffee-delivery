@@ -1,7 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { z } from 'zod'
+import * as z from 'zod'
+import { useCart } from '../../hooks/useCart'
 import { FormSection } from './components/FormSection'
 import { PaymentSection } from './components/PaymentSection'
 import { SelectedProductsSection } from './components/SelectedProductsSection'
@@ -22,7 +23,7 @@ const checkouFormSchema = z.object({
   state: z.string().min(1, 'Please enter a state'),
   paymentMethod: z.nativeEnum(paymentMethods, {
     errorMap: () => {
-      return { message: 'Please enter a payment method' }
+      return { message: 'Please choose a payment method' }
     },
   }),
 })
@@ -37,19 +38,25 @@ const checkoutFormDefaultValues = {
   neighborhood: '',
   city: '',
   state: '',
-  paymentMethod: paymentMethods.cash,
+  paymentMethod: undefined,
 }
 
 export const CheckoutPage = () => {
+  const { cleanCart } = useCart()
   const navigate = useNavigate()
   const checkoutFormMethods = useForm<CheckoutFormData>({
     resolver: zodResolver(checkouFormSchema),
     defaultValues: checkoutFormDefaultValues,
   })
-  const { handleSubmit } = checkoutFormMethods
+  const { handleSubmit, getValues } = checkoutFormMethods
+
+  console.log('HAHSHAHAH')
+  console.log('getValues', getValues())
 
   function handleCheckoutFormSubmit(data: CheckoutFormData) {
+    console.log('form submitted')
     navigate('/confirmedOrder', { state: data })
+    cleanCart()
   }
 
   return (
