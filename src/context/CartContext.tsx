@@ -1,8 +1,21 @@
-import { ReactNode, createContext, useEffect, useState } from 'react'
+import {
+  ReactNode,
+  createContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react'
 import { CART_STORAGE_KEY } from '../constants'
 import { Product } from '../pages/LandingPage/components/ProductSection'
+import {
+  ProductQuantityAction,
+  addToCartAction,
+  clearCartAction,
+  productQuantityChangeAction,
+  removeFromCartAction,
+} from '../reducers/products/actions'
+import { cartReducer } from '../reducers/products/reduces'
 
-export type ProductQuantityAction = 'increase' | 'decrease'
 export interface CartItem extends Product {
   quantity: number
 }
@@ -19,58 +32,45 @@ interface CartContextType {
 }
 
 export const CartContext = createContext({} as CartContextType)
-
 interface CartContextProviderProps {
   children: ReactNode
 }
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
-    const storedCartItems = localStorage.getItem(CART_STORAGE_KEY)
-    return storedCartItems ? JSON.parse(storedCartItems) : []
-  })
+  const [cartState, dispatch] = useReducer(
+    cartReducer,
+    {
+      cartItems: [],
+    },
+    (initialValue) => {
+      const storageCartItems = localStorage.getItem(CART_STORAGE_KEY)
+      return storageCartItems
+        ? { cartItems: JSON.parse(storageCartItems) }
+        : initialValue
+    },
+  )
+  const { cartItems } = cartState
 
   useEffect(() => {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems))
   }, [cartItems])
 
   function addToCart(newProduct: CartItem) {
-    const isProductAlreadyInCart = cartItems.findIndex(
-      (item) => item.id === newProduct.id,
-    )
-
-    if (isProductAlreadyInCart >= 0) {
-      const updatedCartItems = cartItems.map((item) =>
-        item.id === newProduct.id
-          ? { ...item, quantity: item.quantity + newProduct.quantity }
-          : item,
-      )
-      setCartItems(updatedCartItems)
-      return
-    }
-    setCartItems((state) => [...state, newProduct])
+    dispatch(addToCartAction(newProduct))
   }
+
   function onProductQuantityChange(
     productId: CartItem['id'],
     type: ProductQuantityAction,
   ) {
-    const updatedCartItems = cartItems.map((item) =>
-      item.id === productId
-        ? {
-            ...item,
-            quantity:
-              type === 'increase' ? item.quantity + 1 : item.quantity - 1,
-          }
-        : item,
-    )
-    setCartItems(updatedCartItems)
+    dispatch(productQuantityChangeAction(productId, type))
   }
+
   function removeFromCart(productId: Product['id']) {
-    const updatedCartItems = cartItems.filter((item) => item.id !== productId)
-    setCartItems(updatedCartItems)
+    dispatch(removeFromCartAction(productId))
   }
 
   function cleanCart() {
-    setCartItems([])
+    dispatch(clearCartAction())
   }
 
   return (

@@ -50,7 +50,7 @@ export function ConfirmedOrder() {
             iconBgColor="purple"
             info={
               <RegularText>
-                Entrega em
+                Entrega em{' '}
                 <strong>
                   {street}, {number}
                 </strong>

@@ -1,6 +1,7 @@
 import { Trash } from '@phosphor-icons/react'
-import { CartItem, ProductQuantityAction } from '../../context/CartContext'
+import { CartItem } from '../../context/CartContext'
 import { useCart } from '../../hooks/useCart'
+import { ProductQuantityAction } from '../../reducers/products/actions'
 import { ProductQuantity } from '../ProductQuantity'
 import { RegularText } from '../Typography'
 

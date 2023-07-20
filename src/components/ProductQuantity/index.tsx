@@ -1,5 +1,5 @@
 import { Minus, Plus } from '@phosphor-icons/react'
-import { ProductQuantityAction } from '../../context/CartContext'
+import { ProductQuantityAction } from '../../reducers/products/actions'
 import { RegularText } from '../Typography'
 
 interface ProductQuantityProps {

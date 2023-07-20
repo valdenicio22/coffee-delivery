@@ -9,7 +9,8 @@ export function SelectedProductsSection() {
   const { cartItems } = useCart()
 
   const cartTotalPrice = useMemo(
-    () => cartItems.reduce((total, item) => total + item.quantity, 0),
+    () =>
+      cartItems.reduce((total, item) => total + item.quantity * item.price, 0),
     [cartItems],
   )
 
