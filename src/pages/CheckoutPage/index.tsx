@@ -7,23 +7,23 @@ import { FormSection } from './components/FormSection'
 import { PaymentSection } from './components/PaymentSection'
 import { SelectedProductsSection } from './components/SelectedProductsSection'
 
-enum paymentMethods {
+enum PaymentMethods {
   credit = 'credit',
   debit = 'debit',
   cash = 'cash',
 }
 
 const checkouFormSchema = z.object({
-  zipCode: z.string().min(1, 'Please enter a zip code'),
-  street: z.string().min(1, 'Please enter a street'),
-  number: z.string().min(1, 'Please enter a number'),
+  zipCode: z.string().min(1, 'Informe o CEP'),
+  street: z.string().min(1, 'Informe a Rua'),
+  number: z.string().min(1, 'Informe o Número'),
   complement: z.string(),
-  neighborhood: z.string().min(1, 'Please enter a neighborhood'),
-  city: z.string().min(1, 'Please enter a city'),
-  state: z.string().min(1, 'Please enter a state'),
-  paymentMethod: z.nativeEnum(paymentMethods, {
+  district: z.string().min(1, 'Informe o Bairro'),
+  city: z.string().min(1, 'Informe a Cidade'),
+  state: z.string().min(1, 'Informe a UF'),
+  paymentMethod: z.nativeEnum(PaymentMethods, {
     errorMap: () => {
-      return { message: 'Please choose a payment method' }
+      return { message: 'Informe o método de pagamento' }
     },
   }),
 })
@@ -35,7 +35,7 @@ const checkoutFormDefaultValues = {
   street: '',
   number: '',
   complement: '',
-  neighborhood: '',
+  district: '',
   city: '',
   state: '',
   paymentMethod: undefined,

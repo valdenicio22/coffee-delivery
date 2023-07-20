@@ -6,15 +6,15 @@ import { HeaderSection } from '../HeaderSection'
 
 export const paymentMethods = {
   credit: {
-    label: 'Credit Card',
+    label: 'Cartão de Crédito',
     icon: <CreditCard size={16} />,
   },
   debit: {
-    label: 'Debit Card',
+    label: 'Cartão de Débito',
     icon: <Bank size={16} />,
   },
   cash: {
-    label: 'Money',
+    label: 'Dinheiro',
     icon: <Money size={16} />,
   },
 }

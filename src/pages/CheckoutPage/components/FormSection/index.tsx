@@ -32,47 +32,47 @@ export function FormSection() {
         <div className="w-full grid grid-cols-[12.5rem_17.25rem_3.75rem] gap-x-3 gap-y-4 mt-8">
           <Input
             type="number"
-            placeholder="Zip Code"
+            placeholder="CEP"
             {...register('zipCode')}
             error={errors.zipCode?.message}
           />
           <Input
             className="col-span-3"
             type="text"
-            placeholder="Street"
+            placeholder="Rua"
             {...register('street')}
             error={errors.street?.message}
           />
           <Input
             type="number"
-            placeholder="Number"
+            placeholder="Número"
             {...register('number')}
             error={errors.number?.message}
           />
           <Input
             className="col-span-2"
             type="text"
-            placeholder="Complement"
-            rightText="Optional"
+            placeholder="Complemento"
+            rightText="Opcional"
             {...register('complement')}
             error={errors.complement?.message}
           />
           <Input
             type="text"
-            placeholder="Neighborhood"
-            {...register('neighborhood')}
-            error={errors.neighborhood?.message}
+            placeholder="Bairro"
+            {...register('district')}
+            error={errors.district?.message}
           />
           <Input
             className="flex-1"
             type="text"
-            placeholder="City"
+            placeholder="Cidade"
             {...register('city')}
             error={errors.city?.message}
           />
           <Input
             type="text"
-            placeholder="State"
+            placeholder="UF"
             {...register('state')}
             error={errors.state?.message}
           />

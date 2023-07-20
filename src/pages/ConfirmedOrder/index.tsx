@@ -17,7 +17,7 @@ export function ConfirmedOrder() {
   const {
     number,
     street,
-    neighborhood,
+    district,
     city,
     state: clientState,
     paymentMethod,
@@ -55,7 +55,7 @@ export function ConfirmedOrder() {
                   {street}, {number}
                 </strong>
                 <br />
-                {neighborhood} - {city}, {clientState}
+                {district} - {city}, {clientState}
               </RegularText>
             }
           />
