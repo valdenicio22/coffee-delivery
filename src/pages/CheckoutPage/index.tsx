@@ -1,9 +1,16 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 import { FormSection } from './components/FormSection'
 import { PaymentSection } from './components/PaymentSection'
 import { SelectedProductsSection } from './components/SelectedProductsSection'
+
+enum paymentMethods {
+  credit = 'credit',
+  debit = 'debit',
+  cash = 'cash',
+}
 
 const checkouFormSchema = z.object({
   zipCode: z.string().min(1, 'Please enter a zip code'),
@@ -13,8 +20,13 @@ const checkouFormSchema = z.object({
   neighborhood: z.string().min(1, 'Please enter a neighborhood'),
   city: z.string().min(1, 'Please enter a city'),
   state: z.string().min(1, 'Please enter a state'),
+  paymentMethod: z.nativeEnum(paymentMethods, {
+    errorMap: () => {
+      return { message: 'Please enter a payment method' }
+    },
+  }),
 })
-type CheckoutFormData = z.infer<typeof checkouFormSchema>
+export type CheckoutFormData = z.infer<typeof checkouFormSchema>
 export type CheckoutFormDataKeys = keyof CheckoutFormData
 
 const checkoutFormDefaultValues = {
@@ -25,9 +37,11 @@ const checkoutFormDefaultValues = {
   neighborhood: '',
   city: '',
   state: '',
+  paymentMethod: paymentMethods.cash,
 }
 
 export const CheckoutPage = () => {
+  const navigate = useNavigate()
   const checkoutFormMethods = useForm<CheckoutFormData>({
     resolver: zodResolver(checkouFormSchema),
     defaultValues: checkoutFormDefaultValues,
@@ -35,7 +49,7 @@ export const CheckoutPage = () => {
   const { handleSubmit } = checkoutFormMethods
 
   function handleCheckoutFormSubmit(data: CheckoutFormData) {
-    console.log(data)
+    navigate('/confirmedOrder', { state: data })
   }
 
   return (
@@ -43,7 +57,7 @@ export const CheckoutPage = () => {
       <form
         onSubmit={handleSubmit(handleCheckoutFormSubmit)}
         id="checkoutForm"
-        className="layoutContainer flex gap-8 my-8"
+        className="flex gap-8 my-8 layoutContainer"
       >
         <div className="flex flex-col gap-4">
           <FormSection />

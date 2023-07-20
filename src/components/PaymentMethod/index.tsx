@@ -1,5 +1,4 @@
 import { InputHTMLAttributes, ReactNode, forwardRef } from 'react'
-import { RegularText } from '../Typography'
 
 type PaymentMethodProps = InputHTMLAttributes<HTMLInputElement> & {
   icon: ReactNode
@@ -8,26 +7,29 @@ type PaymentMethodProps = InputHTMLAttributes<HTMLInputElement> & {
 }
 
 const PaymentMethod = forwardRef<HTMLInputElement, PaymentMethodProps>(
-  ({ icon, iconColor = 'purple', label, ...props }, ref) => {
+  ({ id, icon, iconColor = 'purple', label, ...props }, ref) => {
     const iconColorVariant = {
       purple: 'text-brand-purple',
     }
     return (
-      <div className="p-4 bg-base-button rounded-md flex items-center gap-3 select-none">
-        {icon && (
+      <div>
+        <input
+          id={id}
+          className={`appearance-none hidden paymentInputMethod`}
+          type="radio"
+          {...props}
+          ref={ref}
+        />
+        <label
+          htmlFor={id}
+          className={`flex items-center justify-center gap-2 p-4 
+          uppercase rounded-md select-none bg-base-button
+          text-base-text text-text-xs border border-bg-base-button
+          hover:bg-base-hover transitionColor`}
+        >
           <span className={`${iconColorVariant[iconColor]}`}>{icon}</span>
-        )}
-        <div>
-          <RegularText size="xs" className="uppercase">
-            {label}
-          </RegularText>
-          <input
-            className={`appearance-none hidden`}
-            type="radio"
-            {...props}
-            ref={ref}
-          />
-        </div>
+          {label}
+        </label>
       </div>
     )
   },
