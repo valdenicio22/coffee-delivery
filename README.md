@@ -12,7 +12,7 @@
     The challenge features
    </th>
    <th>
-    Challenge &nbsp;<a href='https://www.figma.com/file/V21IOBwu69P4UgdWG6cFPx/Coffee-Delivery-%E2%80%A2-Desafio-React-(Copy)?node-id=2%3A12&mode=dev'><img width='20' height='20' src='https://github.com/valdenicio22/git-sheet-cheat/assets/40251933/537b9c91-9585-4b0b-9cc1-b79832f9b76d'></a>
+    Challenge &nbsp;<a href='https://www.figma.com/file/V21IOBwu69P4UgdWG6cFPx/Coffee-Delivery-%E2%80%A2-Desafio-React-(Copy)?node-id=2%3A12&mode=dev'><img width='20' height='20' src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/figma.png'></a>
    </th>
   </tr>
  </thead>
@@ -30,7 +30,7 @@
 </ul>
    </td>
    <td>
-    <img src="https://github.com/valdenicio22/git-sheet-cheat/assets/40251933/6bf77564-6181-455b-a04e-39e849967cd3" />
+    <img src="https://github.com/valdenicio22/coffee-delivery/assets/gist-images/project.png" />
    </td>
   </tr>
  </tbody>
@@ -75,18 +75,18 @@
   <body>
    <tr>
      <td>
-     <img src='https://github.com/valdenicio22/git-sheet-cheat/assets/40251933/56f25536-464c-476b-a1c0-892878905844' />
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/landing.png' />
     </td>
      <td>
-     <img src='https://github.com/valdenicio22/git-sheet-cheat/assets/40251933/4f243e74-2d91-43b5-88a7-e06dda569273' />
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/errorCheckout.png' />
     </td>
    </tr>
    <tr>
     <td>
-     <img src='https://github.com/valdenicio22/git-sheet-cheat/assets/40251933/c79f533b-14b8-4da9-9465-df4feb97cdfd' />
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/filledCheckout.png' />
     </td>
      <td>
-     <img src='https://github.com/valdenicio22/git-sheet-cheat/assets/40251933/dfa33bf5-1353-4153-9a98-30b4e448d2da' />
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/success.png' />
     </td>
    </tr>
   </body>
