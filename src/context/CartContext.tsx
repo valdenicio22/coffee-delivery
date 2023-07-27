@@ -14,7 +14,7 @@ import {
   productQuantityChangeAction,
   removeFromCartAction,
 } from '../reducers/products/actions'
-import { cartReducer } from '../reducers/products/reduces'
+import { cartReducer } from '../reducers/products/reducers'
 
 export interface CartItem extends Product {
   quantity: number
