@@ -5,6 +5,9 @@
 
 ## Challenge 02 - Coffee Delivery
 
+![project](https://github.com/valdenicio22/coffee-delivery/assets/40251933/a3d67c0f-1c16-4918-9e0b-97f1ae56be82)
+
+
 <table>
  <thead>
   <tr>
@@ -33,6 +36,7 @@
     <img src="https://github.com/valdenicio22/coffee-delivery/assets/gist-images/project.png" />
    </td>
   </tr>
+  
  </tbody>
 </table>
 
@@ -76,6 +80,7 @@
    <tr>
      <td>
      <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/landing.png' />
+      
     </td>
      <td>
      <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/errorCheckout.png' />
