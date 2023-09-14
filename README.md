@@ -9,6 +9,12 @@
 
 
 <img src="https://github.com/valdenicio22/coffee-delivery/assets/gist-images/project.png](https://github.com/valdenicio22/coffee-delivery/assets/40251933/a3d67c0f-1c16-4918-9e0b-97f1ae56be82" aling="center"/>
+
+![coffe-delivery-landing](https://github.com/valdenicio22/coffee-delivery/assets/40251933/2ef68543-0c51-490e-8c5c-7b99aa9d10f9)
+
+
+<img src="https://github.com/valdenicio22/coffee-delivery/assets/40251933/2ef68543-0c51-490e-8c5c-7b99aa9d10f9"/>
+
 <table>
  <thead>
   <tr>
