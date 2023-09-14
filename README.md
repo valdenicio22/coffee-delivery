@@ -8,6 +8,7 @@
 ![project](https://github.com/valdenicio22/coffee-delivery/assets/40251933/a3d67c0f-1c16-4918-9e0b-97f1ae56be82)
 
 
+<img src="https://github.com/valdenicio22/coffee-delivery/assets/gist-images/project.png](https://github.com/valdenicio22/coffee-delivery/assets/40251933/a3d67c0f-1c16-4918-9e0b-97f1ae56be82" aling="center"/>
 <table>
  <thead>
   <tr>
