@@ -5,16 +5,6 @@
 
 ## Challenge 02 - Coffee Delivery
 
-![project](https://github.com/valdenicio22/coffee-delivery/assets/40251933/a3d67c0f-1c16-4918-9e0b-97f1ae56be82)
-
-
-<img src="https://github.com/valdenicio22/coffee-delivery/assets/gist-images/project.png](https://github.com/valdenicio22/coffee-delivery/assets/40251933/a3d67c0f-1c16-4918-9e0b-97f1ae56be82" aling="center"/>
-
-![coffe-delivery-landing](https://github.com/valdenicio22/coffee-delivery/assets/40251933/2ef68543-0c51-490e-8c5c-7b99aa9d10f9)
-
-
-<img src="https://github.com/valdenicio22/coffee-delivery/assets/40251933/2ef68543-0c51-490e-8c5c-7b99aa9d10f9"/>
-
 <table>
  <thead>
   <tr>
@@ -22,7 +12,9 @@
     The challenge features
    </th>
    <th>
-    Challenge &nbsp;<a href='https://www.figma.com/file/V21IOBwu69P4UgdWG6cFPx/Coffee-Delivery-%E2%80%A2-Desafio-React-(Copy)?node-id=2%3A12&mode=dev'><img width='20' height='20' src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/figma.png'></a>
+    <a href="https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate" target="_blank"> 
+     Challenge <img src="https://github.com/valdenicio22/coffee-delivery/assets/40251933/4fe40cdc-a292-4893-b13e-6b2286e0234d">
+    </a>
    </th>
   </tr>
  </thead>
@@ -40,7 +32,7 @@
 </ul>
    </td>
    <td>
-    <img src="https://github.com/valdenicio22/coffee-delivery/assets/gist-images/project.png" />
+    <img src="https://github.com/valdenicio22/coffee-delivery/assets/40251933/3d0e2111-fc28-4b64-a1b8-0a72a5f42255" />
    </td>
   </tr>
   
@@ -86,19 +78,18 @@
   <body>
    <tr>
      <td>
-     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/landing.png' />
-      
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/40251933/2ef68543-0c51-490e-8c5c-7b99aa9d10f9' />
     </td>
      <td>
-     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/errorCheckout.png' />
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/40251933/76871e6b-2295-4c3e-8bfb-daadb4934d36' />
     </td>
    </tr>
    <tr>
     <td>
-     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/filledCheckout.png' />
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/40251933/40ecc283-f722-42f0-a0e8-7f0901e2f38f' />
     </td>
      <td>
-     <img src='https://github.com/valdenicio22/coffee-delivery/assets/gist-images/success.png' />
+     <img src='https://github.com/valdenicio22/coffee-delivery/assets/40251933/42c12027-cc7a-48ec-b9c1-2e858e54eb22' />
     </td>
    </tr>
   </body>
